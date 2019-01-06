@@ -1,11 +1,10 @@
 class Forecast
 
   def initialize(data, params)
-    binding.pry
     @id = data[:daily][:data][0][:time]
 
-    long = data[:longitude]
-    lat = data[:latitude]
+    @longitude = data[:longitude]
+    @latitude = data[:latitude]
 
     currently = data[:currently]
     hourly = data[:hourly]
@@ -19,8 +18,8 @@ class Forecast
     @temperature = daily[:temperature]
     @high = today[:temperatureHigh]
     @low = today[:temperatureLow]
-    @city = params[:location] ? params[:location].split(",").first.capitalize : "No City Given"
-    @state = params[:location] ? params[:location].split(",").last.upcase : "No State Given"
+    @city = params[:location] ? params[:location].split(",").first.capitalize : "Denver"
+    @state = params[:location] ? params[:location].split(",").last.upcase : "CO"
     @date = Time.at(@id).to_datetime
 
     # Upper Right Box
