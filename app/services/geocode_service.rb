@@ -1,20 +1,28 @@
 class GeocodeService
 
   def initialize(location)
-    @location = location
-    @key = ENV['GOOGLE_GEOCODE_API']
+    @location = location || "Denver, CO"
   end
-  
-  def json
-    url = "maps/api/geocode/json?address=#{@location}&key=AIzaSyD7ZvC6r_LNgeYBRoDP2JesDHunEnt6TTA"
-    response = conn.get(url)
-    JSON.parse(response.body, symbolize_names: true)
+
+  def lat_lng
+    get_json(@location)["results"].first["geometry"]["location"]
   end
 
   private
 
+  def key
+    ENV['GOOGLE_GEOCODE_API']
+  end
+
+  def get_json(location)
+    response = conn.get("?address=#{location}&key=#{key}")
+
+    JSON.parse(response.body)
+  end
 
   def conn
-    Faraday.new(url: "https://maps.googleapis.com/")
+    Faraday.new(:url => 'https://maps.googleapis.com/maps/api/geocode/json') do |faraday|
+      faraday.adapter  Faraday.default_adapter
+    end
   end
 end
