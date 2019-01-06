@@ -22,4 +22,25 @@ RSpec.describe "User DELETES a favorite" do
     expect(body.first["location"]).to eq("Dallas, TX")
 
   end
+
+  it "and enters incorrect API key" do
+    user_data = {
+    "email": "awesomesauce@gmail.com",
+    "password": "abc123doremi"
+    }
+    user = User.create!(user_data)
+    user.favorites.create!(location: "Denver, CO")
+    user.favorites.create!(location: "Dallas, TX")
+
+    user_api_key = {
+      "location": "Denver, CO",
+      "api_key": "NotTheKeyYouWant"
+    }
+
+    delete "/api/v1/favorites", params: user_api_key
+    expect(response.status).to eq(401)
+    body = JSON.parse(response.body)
+    expect(user.favorites.count).to eq(2)
+
+  end
 end
