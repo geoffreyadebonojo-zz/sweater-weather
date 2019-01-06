@@ -46,6 +46,24 @@ RSpec.describe "User login" do
     expect(response.status).to eq(200)
     body = JSON.parse(response.body)
     expect(body["key"]).to eq("thisIsYourApiKey.UR#WLCERZ")
-    binding.pry
+  end
+
+  it "API won't let user log in to session with incorrect password" do
+    user_data = {
+    "email": "awesomesauce@gmail.com",
+    "password": "abc123doremi",
+    }
+    user = User.create!(user_data)
+    bad_data = {
+    "email": "awesomesauce@gmail.com",
+    "password": "wrong_password_dude",
+    }
+    post "/api/v1/sessions", params: bad_data
+
+    expect(response.status).to eq(400)
+    body = JSON.parse(response.body)
+    expect(body["key"]).to be_nil
+    expect(body["message"]).to eq("something went wrong!")
+
   end
 end
