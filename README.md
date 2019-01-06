@@ -22,4 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+<<<<<<< HEAD
 # sweater-weather
+=======
+>>>>>>> e2b2b195a2cac6884a076e600c87756c9d663103
