@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "favorites endpoint" do
-  it "lets the user POST" do
+RSpec.describe "User POSTS to favorites" do
+  it "and succeeds" do
     user_data = {
     "email": "awesomesauce@gmail.com",
     "password": "abc123doremi"
@@ -24,11 +24,12 @@ RSpec.describe "favorites endpoint" do
     post "/api/v1/favorites", params: post_data
 
     expect(Favorite.count).to eq(1)
+    expect(User.first.favorites.first.location).to eq("Denver, CO")
 
     expect(response.status).to eq(204)
   end
 
-  it "refuses users POST if api key is incorrect" do
+  it "and it refuses users POST if api key is incorrect" do
     user_data = {
     "email": "awesomesauce@gmail.com",
     "password": "abc123doremi"
