@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
     if user.save && validation
       render json: {
         message: "Sucessfully created! Here's your key",
-        key: "thisIsYourApiKey.UR#WLCERZ"
+        key: user.api_key
       }, status: 200
     else
       render json: {message: "problem occured!"}, status: 400

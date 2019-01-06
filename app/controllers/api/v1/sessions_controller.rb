@@ -4,7 +4,7 @@ class Api::V1::SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       render json: {
-        key: "thisIsYourApiKey.UR#WLCERZ"
+        key: user.api_key
       }, status: 200
     else
       render json: {
