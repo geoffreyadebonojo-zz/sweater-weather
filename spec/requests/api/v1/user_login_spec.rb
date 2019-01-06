@@ -13,7 +13,7 @@ RSpec.describe "User login" do
 
     expect(response).to be_successful
     body = JSON.parse(response.body)
-    expect(body["key"]).to eq("thisIsYourApiKey.UR#WLCERZ")
+    expect(body["key"]).to eq(User.first.api_key)
     expect(body["message"]).to eq("Sucessfully created! Here's your key")
     expect(User.last.email).to eq("awesomesauce@gmail.com")
   end
@@ -45,7 +45,7 @@ RSpec.describe "User login" do
 
     expect(response.status).to eq(200)
     body = JSON.parse(response.body)
-    expect(body["key"]).to eq("thisIsYourApiKey.UR#WLCERZ")
+    expect(body["key"]).to eq(user.api_key)
   end
 
   it "API won't let user log in to session with incorrect password" do
