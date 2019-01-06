@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "User login" do
-  it "API recieves post request" do
+  it "API recieves post request, creates user" do
 
     data = {
     "email": "awesomesauce@gmail.com",
@@ -32,5 +32,20 @@ RSpec.describe "User login" do
     body = JSON.parse(response.body)
     expect(body["message"]).to eq("problem occured!")
     expect(User.count).to eq(0)
+  end
+
+  it "API lets user log in to session with password" do
+    data = {
+    "email": "awesomesauce@gmail.com",
+    "password": "abc123doremi",
+    }
+    user = User.create!(data)
+
+    post "/api/v1/sessions", params: data
+
+    expect(response.status).to eq(200)
+    body = JSON.parse(response.body)
+    expect(body["key"]).to eq("thisIsYourApiKey.UR#WLCERZ")
+    binding.pry
   end
 end
