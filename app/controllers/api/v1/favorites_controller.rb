@@ -14,4 +14,11 @@ class Api::V1::FavoritesController < ApplicationController
     user = User.find_by(api_key: params[:api_key])
     render json: user.favorites
   end
+
+  def destroy
+    user = User.find_by(api_key: params[:api_key])
+    favorite = user.favorites.find_by(location: params[:location])
+    favorite.destroy
+    render json: user.favorites
+  end
 end
