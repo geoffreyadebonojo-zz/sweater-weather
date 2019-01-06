@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :forecasts, only: [:index]
       post '/users', to: 'users#create'
       get '/users', to: 'users#index'
+      post '/sessions', to: 'sessions#create'
     end
   end
 end
