@@ -1,9 +1,8 @@
 class ForecastService
 
-  def initialize(lat, long)
-    # @geocode = GeocodeService.new
-    @lat = lat
-    @long = long
+  def initialize(lat_lng_hash)
+    @lat = lat_lng_hash["lat"]
+    @long = lat_lng_hash["lng"]
   end
 
   def json
@@ -17,10 +16,6 @@ class ForecastService
     response = conn.get(url)
     JSON.parse(response.body, symbolize_names: true)
   end
-
-  # def key
-  #   @key = ENV['DARK_SKIES_API']
-  # end
 
   def conn
     Faraday.new(url: "https://api.darksky.net/")
