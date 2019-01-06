@@ -9,10 +9,9 @@ RSpec.describe "User visits the forecast page" do
 
     body = JSON.parse(response.body)
 
-    expect(body.keys).to eq(["id", "daily_forecasts", "hourly_forecasts",
-      "summary", "temperature", "high", "low", "city", "state", "date",
-      "today_summary", "tonight_summary", "feels_like",
-      "humidity", "visibility", "uv_index"])
+    expect(body.keys).to eq(["id", "summary", "temperature", "high", "low",
+      "city", "state", "date", "today_summary", "tonight_summary", "feels_like",
+      "humidity", "visibility", "uv_index", "daily_forecasts", "hourly_forecasts"])
 
     expect(body["daily_forecasts"].count).to eq(8)
     expect(body["daily_forecasts"].first.keys).to eq(["id", "sunrise", "sunset",
