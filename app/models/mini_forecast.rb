@@ -22,6 +22,5 @@ class MiniForecast
     @tonight_summary = tomorrow[:summary]
     @feels_like = currently[:apparentTemperature]
     @humidity = today[:humidity]
-
   end
 end
