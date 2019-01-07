@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "User login" do
-  it "API recieves post request, creates user" do
+  it "POST user" do
 
     data = {
     "email": "awesomesauce@gmail.com",
@@ -18,7 +18,7 @@ RSpec.describe "User login" do
     expect(User.last.email).to eq("awesomesauce@gmail.com")
   end
 
-  it "API rejects post request with wrong password" do
+  it "POST user with wrong password" do
 
     data = {
     "email": "awesomesauce@gmail.com",
@@ -34,7 +34,7 @@ RSpec.describe "User login" do
     expect(User.count).to eq(0)
   end
 
-  it "API lets user log in to session with password" do
+  it "POST session" do
     data = {
     "email": "awesomesauce@gmail.com",
     "password": "abc123doremi",
@@ -48,7 +48,7 @@ RSpec.describe "User login" do
     expect(body["key"]).to eq(user.api_key)
   end
 
-  it "API won't let user log in to session with incorrect password" do
+  it "POST session with wrong password" do
     user_data = {
     "email": "awesomesauce@gmail.com",
     "password": "abc123doremi",

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "User POSTS to the forecast endpoint" do
+RSpec.describe "POST forecast" do
   it "responds with a location param" do
 
     get "/api/v1/forecasts?location=denver,co"
