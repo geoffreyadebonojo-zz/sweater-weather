@@ -7,7 +7,7 @@ RSpec.describe "User POSTS to the forecast endpoint" do
 
     expect(response).to be_successful
 
-    body = JSON.parse(response.body)
+    body = JSON.parse(response.body)["data"]
 
     expect(body.keys).to eq(["id", "longitude", "latitude", "summary", "high", "temperature", "low",
       "city", "state", "date", "today_summary", "tonight_summary", "feels_like",
@@ -22,11 +22,4 @@ RSpec.describe "User POSTS to the forecast endpoint" do
       "icon", "temp"])
 
   end
-
-  # it "responds without a location param" do
-  #
-  #   get "/api/v1/forecasts"
-  #   expect(response).to be_successful
-  #
-  # end
 end

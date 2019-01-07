@@ -6,9 +6,9 @@ class Api::V1::UsersController < ApplicationController
       render json: {
         message: "Sucessfully created! Here's your key",
         key: user.api_key
-      }, status: 200
+      }, status: 201
     else
-      render json: {message: "problem occured!"}, status: 400
+      render json: {data: {message: "problem occured!"}}, status: 400
     end
 
   end

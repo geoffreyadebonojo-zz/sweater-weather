@@ -8,12 +8,10 @@ class User < ApplicationRecord
 
   def favorites_forecasts
     locations = self.favorites.pluck(:location)
-    forecast = {}
-    locations.each do |location|
+    locations.map do |location|
       coords = GeocodeService.new(location).lat_lng
-      forecast[location] = MiniForecast.new(ForecastService.new(coords).json)
+      {location: location, forecast: MiniForecast.new(ForecastService.new(coords).json)}
     end
-    forecast
   end
 
   private
