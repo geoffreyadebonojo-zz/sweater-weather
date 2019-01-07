@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.darksky.net/forecast/<DARK_SKIES_API>/39.7392358,
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      date:
+      - Mon, 07 Jan 2019 02:38:34 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '63'
+      connection:
+      - keep-alive
+      x-authentication-time:
+      - 1ms
+      x-content-type-options:
+      - nosniff
+      x-response-time:
+      - 1.950ms
+      vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"code":400,"error":"The given location (or time) is invalid."}'
+    http_version: 
+  recorded_at: Mon, 07 Jan 2019 02:38:35 GMT
+recorded_with: VCR 4.0.0

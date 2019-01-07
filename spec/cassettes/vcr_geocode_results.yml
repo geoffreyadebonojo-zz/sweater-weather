@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=Dallas%2C+TX&key=<GOOGLE_GEOCODE_API>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Mon, 07 Jan 2019 02:38:36 GMT
+      expires:
+      - Tue, 08 Jan 2019 02:38:36 GMT
+      cache-control:
+      - public, max-age=86400
+      vary:
+      - Accept-Language
+      access-control-allow-origin:
+      - "*"
+      server:
+      - mafe
+      content-length:
+      - '446'
+      x-xss-protection:
+      - 1; mode=block
+      x-frame-options:
+      - SAMEORIGIN
+      server-timing:
+      - gfet4t7; dur=59
+      alt-svc:
+      - quic=":443"; ma=2592000; v="44,43,39,35"
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Dallas",
+                       "short_name" : "Dallas",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Dallas County",
+                       "short_name" : "Dallas County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Texas",
+                       "short_name" : "TX",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Dallas, TX, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 33.0237921,
+                          "lng" : -96.4637379
+                       },
+                       "southwest" : {
+                          "lat" : 32.617537,
+                          "lng" : -96.999347
+                       }
+                    },
+                    "location" : {
+                       "lat" : 32.7766642,
+                       "lng" : -96.79698789999999
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 33.0237921,
+                          "lng" : -96.4637379
+                       },
+                       "southwest" : {
+                          "lat" : 32.617537,
+                          "lng" : -96.999347
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJS5dFe_cZTIYRj2dH9qSb7Lk",
+                 "types" : [ "locality", "political" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Mon, 07 Jan 2019 02:38:37 GMT
+recorded_with: VCR 4.0.0

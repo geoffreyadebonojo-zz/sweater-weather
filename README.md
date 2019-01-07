@@ -16,7 +16,7 @@ Will respond with user's API Key in body.
 
 ### USER LOGIN
 ```
-POST /api/v1/users?email=example@mail.com&password=testword123
+POST /api/v1/sessions?email=example@mail.com&password=testword123
 ```
 Will respond with user's API Key in body
 
@@ -83,20 +83,31 @@ body:
 
 
 
-Things you may want to cover:
+# Getting Started:
 
-* Ruby version
+* ruby -v 2.5.1
+* rails -v 5.2.2
 
-* System dependencies
 
-* Configuration
+* To install the necessary gems
+```
+$ bundle
+```
 
-* Database creation
+* This project uses a Postgresql database. To create the sweater-weather database run:
+```
+$ rake db:{create,migrate}
+```
 
-* Database initialization
+* To run the project spec
+```
+$ rspec
+```
+and view coverage with
+```
+$ open coverage/index.html
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Services: (job queues, cache servers, search engines, etc.)
+- Dark Skies API
+- Google Geocode API

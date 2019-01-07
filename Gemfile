@@ -13,9 +13,11 @@ gem 'figaro'
 gem 'faraday'
 gem 'fast_jsonapi'
 gem 'pry'
-gem 'vcr'
+
 gem 'rspec-rails'
 
+gem 'vcr'
+gem 'webmock'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
