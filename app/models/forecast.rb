@@ -12,11 +12,10 @@ class Forecast
     daily = data[:daily]
     today = daily[:data][0]
     tomorrow = daily[:data][1]
-
     # Upper Left Box
-    @summary = daily[:summary]
-    @temperature = daily[:temperature]
+    @summary = currently[:summary]
     @high = today[:temperatureHigh]
+    @temperature = currently[:temperature]
     @low = today[:temperatureLow]
     @city = params[:location] ? params[:location].split(",").first.capitalize : "Denver"
     @state = params[:location] ? params[:location].split(",").last.upcase : "CO"
@@ -25,7 +24,7 @@ class Forecast
     # Upper Right Box
     @today_summary = today[:summary]
     @tonight_summary = tomorrow[:summary]
-    @feels_like = data[:currently][:apparentTemperature]
+    @feels_like = currently[:apparentTemperature]
     @humidity = today[:humidity]
     @visibility = today[:visibility]
     @uv_index = today[:uvIndex]
