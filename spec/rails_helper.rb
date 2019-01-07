@@ -23,6 +23,7 @@ VCR.configure do |config|
   config.allow_http_connections_when_no_cassette = true
 end
 
+SimpleCov.start "rails"
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -31,7 +32,6 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-SimpleCov.start "rails"
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
