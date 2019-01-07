@@ -1,6 +1,6 @@
 # Sweater Weather
 
-Sweater-Weather Enpoints
+Sweater-Weather Endpoints
 
 ### GET FORECASTS
 ```
