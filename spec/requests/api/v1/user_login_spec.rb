@@ -11,7 +11,7 @@ RSpec.describe "User login" do
 
     post "/api/v1/users", params: data
 
-    expect(response).to be_successful
+    expect(response.status).to eq(201)
     body = JSON.parse(response.body)
     expect(body["key"]).to eq(User.first.api_key)
     expect(body["message"]).to eq("Sucessfully created! Here's your key")
@@ -29,7 +29,7 @@ RSpec.describe "User login" do
     post "/api/v1/users", params: data
 
     expect(response.status).to eq(400)
-    body = JSON.parse(response.body)
+    body = JSON.parse(response.body)["data"]
     expect(body["message"]).to eq("problem occured!")
     expect(User.count).to eq(0)
   end
