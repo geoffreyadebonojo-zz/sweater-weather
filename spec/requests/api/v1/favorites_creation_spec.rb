@@ -26,7 +26,7 @@ RSpec.describe "User POSTS to favorites" do
     expect(Favorite.count).to eq(1)
     expect(User.first.favorites.first.location).to eq("Denver, CO")
 
-    expect(response.status).to eq(204)
+    expect(response.status).to eq(200)
   end
 
   it "and it refuses users POST if api key is incorrect" do
