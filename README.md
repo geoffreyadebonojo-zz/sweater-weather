@@ -16,7 +16,7 @@ Will respond with user's API Key in body.
 
 ### USER LOGIN
 ```
-POST /api/v1/users?email=example@mail.com&password=testword123
+POST /api/v1/sessions?email=example@mail.com&password=testword123
 ```
 Will respond with user's API Key in body
 
