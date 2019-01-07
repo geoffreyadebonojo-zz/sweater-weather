@@ -6,19 +6,19 @@ Sweater-Weather Endpoints
 ```
 GET /api/v1/forecast?location=denver,co
 ```
-Will return full weather information for the location with the name of the city and state in the parameters.
+Returns full weather information for the location with the name of the city and state in the parameters.
 
 ### USER CREATION
 ```
 POST /api/v1/users?email=example@mail.com&password=testword123&password_confirmation=testword123
 ```
-Will respond with user's API Key in body.
+Responds with user's API Key in body.
 
 ### USER LOGIN
 ```
 POST /api/v1/sessions?email=example@mail.com&password=testword123
 ```
-Will respond with user's API Key in body
+Responds with user's API Key in body
 
 ### CREATE FAVORITES
 ```
@@ -47,7 +47,7 @@ body:
   "api_key": "jgn983hy48thw9begh98h4539h4"
 }
 ```
-When user sends API key in body of request, will respond with a list of cities and their weather. As seen below.
+When user sends API key in body of request,  responds with a list of cities and their weather. As seen below.
 
 ```
 status: 200
@@ -80,6 +80,7 @@ body:
   "api_key": "jgn983hy48thw9begh98h4539h4"
 }
 ```
+Destroys the Favorite specified in the location params.
 
 
 
