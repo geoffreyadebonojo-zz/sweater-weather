@@ -1,7 +1,7 @@
 class GeocodeService
 
   def initialize(location)
-    @location = location || "Denver, CO"
+    @location = location
   end
 
   def lat_lng
