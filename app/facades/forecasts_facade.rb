@@ -1,8 +1,8 @@
 class ForecastsFacade
 
-  def create_forecast(data, params)
+  def create_forecast(data, location)
     forecast = ForecastService.new(data)
-    Forecast.new(forecast.json, params)
+    Forecast.build(forecast.json, location)
   end
 
 end
