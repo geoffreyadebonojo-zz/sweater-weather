@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "User DELETES a favorite" do
-  it "and succeeds" do
+RSpec.describe "DELETES favorite" do
+  it "with location and correct key" do
     user_data = {
     "email": "awesomesauce@gmail.com",
     "password": "abc123doremi"

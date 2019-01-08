@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'favorites/create'
   namespace :api do
     namespace :v1 do
       resources :forecasts, only: [:index]

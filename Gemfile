@@ -14,8 +14,6 @@ gem 'faraday'
 gem 'fast_jsonapi'
 gem 'pry'
 
-gem 'rspec-rails'
-
 gem 'vcr'
 gem 'webmock'
 

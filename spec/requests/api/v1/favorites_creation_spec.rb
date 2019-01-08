@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "User POSTS to favorites" do
+RSpec.describe "POSTS favorites" do
   it "and succeeds" do
     user_data = {
     "email": "awesomesauce@gmail.com",
