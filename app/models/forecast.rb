@@ -1,6 +1,6 @@
 class Forecast
 
-  def initialize(data, params)
+  def initialize(data, location)
     @id = data[:daily][:data][0][:time]
 
     @longitude = data[:longitude]
@@ -17,9 +17,7 @@ class Forecast
     @high = today[:temperatureHigh]
     @temperature = currently[:temperature]
     @low = today[:temperatureLow]
-    @city = params[:location] ? params[:location].split(",").first.capitalize : "Denver"
-    @state = params[:location] ? params[:location].split(",").last.upcase : "CO"
-    @date = Time.at(@id).to_datetime
+    @city, @state = location.split(",")
 
     @today_summary = today[:summary]
     @tonight_summary = tomorrow[:summary]
@@ -28,11 +26,15 @@ class Forecast
     @visibility = today[:visibility]
     @uv_index = today[:uvIndex]
 
-    @daily_forecasts = daily_forecasts(data)
-    @hourly_forecasts = hourly_forecasts(data)
   end
 
-  # Main Box
+  def self.build(data, location)
+    forecast = Forecast.new(data, location)
+    @daily_forecasts = forecast.daily_forecasts(data)
+    @hourly_forecasts = forecast.hourly_forecasts(data)
+    forecast
+  end
+
   def hourly_forecasts(data)
     @hourly_forecasts = data[:hourly][:data].map do |hourly_forecast|
       forecast = {
@@ -45,6 +47,7 @@ class Forecast
       HourlyForecast.new(forecast)
     end
   end
+
   def daily_forecasts(data)
     @daily_forecasts = data[:daily][:data].map do |daily_forecast|
       forecast = {
@@ -59,9 +62,6 @@ class Forecast
       }
       DailyForecast.new(forecast)
     end
-  end
-  def daily_gif(summary)
-    GifGetter.new(summary).gif
   end
 
 end
