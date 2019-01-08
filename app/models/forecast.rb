@@ -12,7 +12,7 @@ class Forecast
     daily = data[:daily]
     today = daily[:data][0]
     tomorrow = daily[:data][1]
-    # Upper Left Box
+
     @summary = currently[:summary]
     @high = today[:temperatureHigh]
     @temperature = currently[:temperature]
@@ -21,7 +21,6 @@ class Forecast
     @state = params[:location] ? params[:location].split(",").last.upcase : "CO"
     @date = Time.at(@id).to_datetime
 
-    # Upper Right Box
     @today_summary = today[:summary]
     @tonight_summary = tomorrow[:summary]
     @feels_like = currently[:apparentTemperature]
@@ -50,6 +49,7 @@ class Forecast
     @daily_forecasts = data[:daily][:data].map do |daily_forecast|
       forecast = {
         id: daily_forecast[:time],
+        animated_gif: GifGetter.new(daily_forecast[:summary]).gif,
         sunrise: Time.at(daily_forecast[:sunriseTime]),
         sunset: Time.at(daily_forecast[:sunsetTime]),
         precipitation: daily_forecast[:precipProbability],
@@ -59,6 +59,9 @@ class Forecast
       }
       DailyForecast.new(forecast)
     end
+  end
+  def daily_gif(summary)
+    GifGetter.new(summary).gif
   end
 
 end
