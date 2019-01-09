@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "POST forecast" do
-  it "responds with a location param" do
+  it "responds to a location param" do
 
-    get "/api/v1/forecasts?location=denver,co"
+    get "/api/v1/forecast?location=denver,co"
 
     expect(response).to be_successful
 

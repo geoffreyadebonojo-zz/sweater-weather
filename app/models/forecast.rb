@@ -49,7 +49,7 @@ class Forecast
     @daily_forecasts = data[:daily][:data].map do |daily_forecast|
       forecast = {
         id: daily_forecast[:time],
-        animated_gif: GifGetter.new(daily_forecast[:summary]).gif,
+        animated_gif: GifGetter.new(daily_forecast[:icon]).gif,
         sunrise: Time.at(daily_forecast[:sunriseTime]),
         sunset: Time.at(daily_forecast[:sunsetTime]),
         precipitation: daily_forecast[:precipProbability],

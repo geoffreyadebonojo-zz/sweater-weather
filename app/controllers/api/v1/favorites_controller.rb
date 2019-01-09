@@ -6,9 +6,7 @@ class Api::V1::FavoritesController < ApplicationController
       user.favorites.create!(location: params[:location])
       render json: {data: user.favorites}
     else
-      render json: {
-        message: "something went wrong!"
-      }, status: 401
+      render json: {message: "something went wrong!"}, status: 401
     end
   end
 
@@ -28,9 +26,7 @@ class Api::V1::FavoritesController < ApplicationController
         render json: {message: "That location wasn't found"}
       end
     else
-      render json: {
-        message: "something went wrong!"
-      }, status: 401
+      render json: {message: "something went wrong!"}, status: 401
     end
   end
 end
