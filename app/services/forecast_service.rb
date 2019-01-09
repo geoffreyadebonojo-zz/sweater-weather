@@ -14,6 +14,7 @@ class ForecastService
   def get_json
     url = "forecast/#{ENV['DARK_SKIES_API']}/#{@lat},#{@long}"
     response = conn.get(url)
+    binding.pry
     JSON.parse(response.body, symbolize_names: true)
   end
 
