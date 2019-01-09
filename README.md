@@ -1,6 +1,6 @@
 # Sweater Weather
-use the app on [Heroku](https://dry-hollows-79406.herokuapp.com/api/v1/forecast)
-see the code on [GitHub](https://github.com/geoffreyadebonojo/sweater-weather)
+- use the app on [Heroku](https://dry-hollows-79406.herokuapp.com/api/v1/forecast)
+- see the code on [GitHub](https://github.com/geoffreyadebonojo/sweater-weather)
 
 Sweater-Weather Endpoints
 
@@ -37,7 +37,7 @@ returns
     "icon": "partly-cloudy-day",
     "high": 53.77,
     "low": 30.67
-  }... ]
+  }...]
   "hourly_forecasts": [
     {
       "id": 1547035200,
@@ -103,7 +103,7 @@ body:
   "api_key": "f48ceb42-e8c6-49a5-8956-f735c721b0ad"
 }
 ```
-Creates a Favorite, currently returns a list of user favorites
+Creates a Favorite, returns a list of current user favorites
 ```
 {
   "data": [
