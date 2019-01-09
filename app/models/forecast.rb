@@ -32,8 +32,11 @@ class Forecast
     @uv_index = today[:uvIndex]
   end
 
+  # TODO build superclass to inherit from here
+
   def hourly_forecasts(data)
     @hourly_forecasts = data[:hourly][:data].map do |hourly_forecast|
+      #remove to separate method
       forecast = {
         id: hourly_forecast[:time],
         date: Time.at(hourly_forecast[:time]).to_date,

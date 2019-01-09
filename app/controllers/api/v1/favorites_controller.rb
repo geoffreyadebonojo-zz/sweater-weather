@@ -1,9 +1,11 @@
 class Api::V1::FavoritesController < ApplicationController
-  
+
   def index
     user = User.find_by(api_key: params[:api_key])
     render json: {data: user.favorites_forecasts}
   end
+
+  #TODO methodize/ remove nesting
 
   def create
     user = User.find_by(api_key: params[:api_key])

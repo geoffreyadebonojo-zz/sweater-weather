@@ -1,4 +1,7 @@
 class Api::V1::SessionsController < ApplicationController
+
+  # TODO methodize conditional logic
+
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])

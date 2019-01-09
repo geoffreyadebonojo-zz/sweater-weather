@@ -5,7 +5,7 @@ class GiphyService
   end
 
   def gif
-    get_json["data"].first["url"]
+    get_json["data"][0]["images"]["original"]["url"]
   end
 
   private
