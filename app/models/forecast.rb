@@ -1,17 +1,22 @@
 class Forecast
 
+  def self.build(data, location)
+    forecast = Forecast.new(data, location)
+    @daily_forecasts = forecast.daily_forecasts(data)
+    @hourly_forecasts = forecast.hourly_forecasts(data)
+    forecast
+  end
+
   def initialize(data, location)
-    @id = data[:daily][:data][0][:time]
-
-    @longitude = data[:longitude]
-    @latitude = data[:latitude]
-
     currently = data[:currently]
     hourly = data[:hourly]
-
     daily = data[:daily]
     today = daily[:data][0]
     tomorrow = daily[:data][1]
+
+    @id = data[:daily][:data][0][:time]
+    @longitude = data[:longitude]
+    @latitude = data[:latitude]
 
     @summary = currently[:summary]
     @high = today[:temperatureHigh]
@@ -25,14 +30,6 @@ class Forecast
     @humidity = today[:humidity]
     @visibility = today[:visibility]
     @uv_index = today[:uvIndex]
-
-  end
-
-  def self.build(data, location)
-    forecast = Forecast.new(data, location)
-    @daily_forecasts = forecast.daily_forecasts(data)
-    @hourly_forecasts = forecast.hourly_forecasts(data)
-    forecast
   end
 
   def hourly_forecasts(data)
