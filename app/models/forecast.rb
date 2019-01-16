@@ -53,8 +53,8 @@ class Forecast
       forecast = {
         id: daily_forecast[:time],
         animated_gif: GifGetter.new(daily_forecast[:icon]).gif,
-        sunrise: Time.at(daily_forecast[:sunriseTime]),
-        sunset: Time.at(daily_forecast[:sunsetTime]),
+        sunrise: daily_forecast[:sunriseTime],
+        sunset: daily_forecast[:sunsetTime],
         precipitation: daily_forecast[:precipProbability],
         icon: daily_forecast[:icon],
         high: daily_forecast[:temperatureHigh],
