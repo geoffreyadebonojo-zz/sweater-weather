@@ -13,8 +13,9 @@ class Forecast
     daily = data[:daily]
     today = daily[:data][0]
     tomorrow = daily[:data][1]
-
+    
     @id = data[:daily][:data][0][:time]
+    @time = currently[:time]
     @longitude = data[:longitude]
     @latitude = data[:latitude]
 
