@@ -12,7 +12,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'figaro'
 gem 'faraday'
 gem 'fast_jsonapi'
-gem 'pry'
+
 
 gem 'vcr'
 gem 'webmock'
@@ -21,6 +21,8 @@ gem 'webmock'
 gem 'rack-cors'
 
 group :development, :test do
+  gem 'rb-readline'
+  gem 'pry'
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov'

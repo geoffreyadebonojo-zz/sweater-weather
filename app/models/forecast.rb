@@ -15,7 +15,7 @@ class Forecast
     tomorrow = daily[:data][1]
     
     @id = data[:daily][:data][0][:time]
-    @time = currently[:time]
+    @time = Time.at(currently[:time]).strftime("%H:%m:%S")
     @longitude = data[:longitude]
     @latitude = data[:latitude]
 
@@ -31,6 +31,9 @@ class Forecast
     @humidity = today[:humidity]
     @visibility = today[:visibility]
     @uv_index = today[:uvIndex]
+    @wind_speed = currently[:windSpeed]
+    @wind_bearing = currently[:windBearing]
+    @wind_gust = currently[:windGust]
   end
 
   # TODO build superclass to inherit from here
